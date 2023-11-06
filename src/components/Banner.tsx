@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
+import Typed from "typed.js";
 import { GetMaskButton } from "./GetMaskButton";
 import WhatSvg from "../images/outsvg/what.svg";
-import Typed from "typed.js";
 import { StatueOfLibertySvg } from "./StatueOfLiberty";
 
 export const Banner = () => {
