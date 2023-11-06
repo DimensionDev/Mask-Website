@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { SEO } from "../components/SEO";
 import { StaticImage } from "gatsby-plugin-image";
 
 //assets
@@ -8,6 +7,7 @@ import firefoxImage from "../images/firefox.png";
 import mobileAppImage from "../images/mobile_side_app.png";
 import fireflyDownloadImage from "../images/firefly_download.png";
 import operaImage from "../images/opera.svg";
+import { SEO } from "../components/SEO";
 import Layout from "../components/Layout";
 import buryPointTrigger from "../utils/gtag";
 

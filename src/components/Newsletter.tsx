@@ -1,23 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-const HiddenPathes = [
-  "/about",
-  "/about/",
-  "/mask-website/about",
-  "/mask-website/about/",
-  "/download-links",
-  "/download-links/",
-  "/mask-website/download-links",
-  "/mask-website/download-links/",
-  "/faq",
-  "/faq/",
-  "/mask-website/faq",
-  "/mask-website/faq/",
-  "/tf-docs",
-  "/tf-docs/",
-  "/mask-website/tf-docs",
-  "/mask-website/tf-docs/",
-];
+const HiddenPaths = ["/about", "/download-links", "/faq", "/tf-docs"].flatMap(
+  (x) => [x, `${x}/`, `/mask-website/${x}`, `/mask-website/${x}/`]
+);
 
 export const Newsletter = () => {
   const [path, setPath] = useState("");
@@ -26,7 +11,7 @@ export const Newsletter = () => {
     setPath(window.location.pathname);
   }, []);
 
-  if (HiddenPathes.includes(path)) return null;
+  if (HiddenPaths.includes(path)) return null;
 
   return (
     <div className="flex flex-row justify-between max-md:flex-col max-md:justify-center items-center sm:px-4 md:px-8 px-10 p-10 pb-7 bg-blue-100 box-shadow-news-letter-out">

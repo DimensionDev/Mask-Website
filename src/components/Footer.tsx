@@ -11,20 +11,12 @@ import iconTwitterImage from "../images/icon_twitter.png";
 import iconYoutubeImage from "../images/icon_youtube.png";
 import { Newsletter } from "./Newsletter";
 
-const HiddenNewsLetterPathes = [
-  "/about",
-  "/about/",
-  "/mask-website/about",
-  "/mask-website/about/",
-  "/download-links",
-  "/download-links/",
-  "/mask-website/download-links",
-  "/mask-website/download-links/",
-  "/faq",
-  "/faq/",
-  "/mask-website/faq",
-  "/mask-website/faq/",
-];
+const HiddenPaths = ["/about", "/download-links", "/faq"].flatMap((x) => [
+  x,
+  `${x}/`,
+  `/mask-website/${x}`,
+  `/mask-website/${x}/`,
+]);
 
 export const Footer = () => {
   const [path, setPath] = useState("");
@@ -47,9 +39,7 @@ export const Footer = () => {
           </div>
           <div
             className={`py-4 ${
-              HiddenNewsLetterPathes.includes(path)
-                ? "pt-20 md:pt-12 sm:pt-8"
-                : ""
+              HiddenPaths.includes(path) ? "pt-20 md:pt-12 sm:pt-8" : ""
             } w-full mx-auto grid grid-cols-4 max-md:grid-cols-1 relative px-0`}
           >
             <div className="py-1 md:flex md:flex-col md:justify-between max-md:border-b border-b-0 border-r max-md:border-r-0 sm:pb-12 md:pb-12 border-gray-100 border-opacity-25 min-lg:pr-8 min-lg:mr-8">
