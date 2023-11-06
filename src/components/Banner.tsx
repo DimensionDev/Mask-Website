@@ -10,6 +10,7 @@ export const Banner = () => {
 
   useEffect(() => {
     if (!ref || !ref.current) return;
+
     const options = {
       strings: ["Your Portal To <br> The New, <br>Open Internet."],
       typeSpeed: 90,

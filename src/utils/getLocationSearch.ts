@@ -1,4 +1,4 @@
 export function getLocationSearch() {
-  if (typeof location !== "undefined") return location.search;
-  return "";
+  if (typeof globalThis.location === "undefined") return "";
+  return globalThis.location.search;
 }

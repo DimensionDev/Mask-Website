@@ -7,7 +7,7 @@ export const Partner = () => {
       <h2 className="h2 py-10 sm:pt-6 font-semibold text-center">
         Partners & Supporters
       </h2>
-      <div className="grid grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-x-16 md:gap-x-4 sm:gap-x-2 w-10/12 md:grid-cols-5 md:max-w-6xl md:w-11/12 gap-y-8 mx-auto hoverFilter md:gap-y-8 sm:gap-y-4 justify-center">
+      <div className="grid grid-cols-5 sm:grid-cols-2 gap-x-16 md:gap-x-4 sm:gap-x-2 w-10/12 md:grid-cols-5 md:max-w-6xl md:w-11/12 gap-y-8 mx-auto hoverFilter md:gap-y-8 sm:gap-y-4 justify-center">
         <a
           href="https://www.binance.com/"
           target="_blank"

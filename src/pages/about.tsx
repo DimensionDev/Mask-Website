@@ -1,8 +1,7 @@
 import React from "react";
 import { SEO } from "../components/SEO";
-import aboutSvg from "../images/outsvg/about.svg";
-
 import Layout from "../components/Layout";
+import aboutSvg from "../images/outsvg/about.svg";
 
 // markup
 const AnoutPage = () => {

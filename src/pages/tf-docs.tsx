@@ -1,12 +1,12 @@
 import React from "react";
 import Layout from "../components/Layout";
+import { SEO } from "../components/SEO";
 import ArrowDownImg from "../images/outsvg/arrow_down.svg";
 import DownloadTestFlightImg from "../images/download_testflight.png";
 import DownloadMaskImg from "../images/download_mask.png";
 import AcceptImg from "../images/accept.png";
 import InstallImg from "../images/install.png";
 import OpenImg from "../images/open.png";
-import { SEO } from "../components/SEO";
 
 const StepClassName = "text-blue-mask text-2xl font-bold mt-16 mb-5";
 const ArrowDownClassName = "mx-2";

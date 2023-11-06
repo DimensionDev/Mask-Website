@@ -6,7 +6,7 @@ import circleFrag from "../utils/circleFrag.frag";
 
 export const Background = () => {
   const [ticker] = useState(
-    typeof window !== `undefined` ? new TickManager() : null
+    typeof window !== `undefined` ? new TickManager() : null,
   );
   const ref = useRef(null);
 
