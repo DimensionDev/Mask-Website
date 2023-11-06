@@ -1,5 +1,4 @@
-Mask Website
-====
+# Mask Website
 
 ## Setup
 

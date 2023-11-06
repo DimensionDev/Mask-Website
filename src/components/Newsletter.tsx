@@ -1,28 +1,19 @@
 import React, { useEffect, useState } from "react";
 
+const HiddenPaths = ["/about", "/download-links", "/faq", "/tf-docs"].flatMap(
+  (x) => [x, `${x}/`, `/mask-website/${x}`, `/mask-website/${x}/`]
+);
+
 export const Newsletter = () => {
   const [path, setPath] = useState("");
+
   useEffect(() => {
     setPath(window.location.pathname);
   }, []);
-  return [
-    "/about",
-    "/about/",
-    "/mask-website/about",
-    "/mask-website/about/",
-    "/download-links",
-    "/download-links/",
-    "/mask-website/download-links",
-    "/mask-website/download-links/",
-    "/faq",
-    "/faq/",
-    "/mask-website/faq",
-    "/mask-website/faq/",
-    "/tf-docs",
-    "/tf-docs/",
-    "/mask-website/tf-docs",
-    "/mask-website/tf-docs/",
-  ].includes(path) ? null : (
+
+  if (HiddenPaths.includes(path)) return null;
+
+  return (
     <div className="flex flex-row justify-between max-md:flex-col max-md:justify-center items-center sm:px-4 md:px-8 px-10 p-10 pb-7 bg-blue-100 box-shadow-news-letter-out">
       <div className="mb-8 max-md:w-full">
         <h3 className="h3 font-medium sm:w-full sm:text-center text-left sm:text-xl min-lg:text-4xl md:text-3xl md:font-semibold md:text-left">

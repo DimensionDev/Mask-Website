@@ -11,26 +11,18 @@ import iconTwitterImage from "../images/icon_twitter.png";
 import iconYoutubeImage from "../images/icon_youtube.png";
 import { Newsletter } from "./Newsletter";
 
+const HiddenPaths = ["/about", "/download-links", "/faq"].flatMap((x) => [
+  x,
+  `${x}/`,
+  `/mask-website/${x}`,
+  `/mask-website/${x}/`,
+]);
+
 export const Footer = () => {
   const [path, setPath] = useState("");
   useEffect(() => {
     setPath(window.location.pathname);
   }, []);
-
-  const isHideNewsletter = [
-    "/about",
-    "/about/",
-    "/mask-website/about",
-    "/mask-website/about/",
-    "/download-links",
-    "/download-links/",
-    "/mask-website/download-links",
-    "/mask-website/download-links/",
-    "/faq",
-    "/faq/",
-    "/mask-website/faq",
-    "/mask-website/faq/",
-  ].includes(path);
   const footerLinkTextClassName =
     "text-base text-white opacity-80 hover:opacity-100";
 
@@ -47,7 +39,7 @@ export const Footer = () => {
           </div>
           <div
             className={`py-4 ${
-              isHideNewsletter ? "pt-20 md:pt-12 sm:pt-8" : ""
+              HiddenPaths.includes(path) ? "pt-20 md:pt-12 sm:pt-8" : ""
             } w-full mx-auto grid grid-cols-4 max-md:grid-cols-1 relative px-0`}
           >
             <div className="py-1 md:flex md:flex-col md:justify-between max-md:border-b border-b-0 border-r max-md:border-r-0 sm:pb-12 md:pb-12 border-gray-100 border-opacity-25 min-lg:pr-8 min-lg:mr-8">
@@ -69,7 +61,7 @@ export const Footer = () => {
               <div className="flex justify-start whitespace-nowrap max-md:mr-8 sm:mt-8 md:mt-8">
                 <div className="py-1 flex flex-col">
                   <p className="text-2xl text-white mb-6">About</p>
-                  <div className="grid grid-cols-1 gap-x-16 gap-x-4 gap-y-10 sm:gap-y-5 max-md:gap-x-0 max-md:gap-y-1 text-base max-md::text-sm">
+                  <div className="grid grid-cols-1 gap-x-4 gap-y-10 sm:gap-y-5 max-md:gap-x-0 max-md:gap-y-1 text-base max-md::text-sm">
                     <a
                       href="https://dimensiondev.github.io/Mask-VI/"
                       target="_blank"

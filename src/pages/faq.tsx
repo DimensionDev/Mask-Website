@@ -10,7 +10,6 @@ import faqSmImage from "../images/faq_sm.png";
 import faq1Image from "../images/faq_one.png";
 import faq2Image from "../images/faq_two.png";
 import faq3Image from "../images/faq_three.png";
-import faq4Image from "../images/faq_four.png";
 import faq5Image from "../images/faq_five.png";
 import faq6Image from "../images/faq_six.png";
 import faqOtherImage from "../images/faq_other.png";
@@ -25,7 +24,7 @@ import faqShrinkImage from "../images/faq_shrink.png";
 const FaqPage = () => {
   const [size, setSize] = useState(0);
   const [type, setType] = useState(
-    new URLSearchParams(getLocationSearch()).get("type") ?? ""
+    new URLSearchParams(getLocationSearch()).get("type") ?? "",
   );
 
   const contents = [
@@ -463,7 +462,7 @@ function FaqTopic(props: any) {
         root: document,
         rootMargin: "0px",
         threshold: 1.0,
-      }
+      },
     );
 
     observer.observe(ref.current!);

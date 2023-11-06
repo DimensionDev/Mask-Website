@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { SEO } from "../components/SEO";
 import { StaticImage } from "gatsby-plugin-image";
 
 //assets
@@ -8,14 +7,14 @@ import firefoxImage from "../images/firefox.png";
 import mobileAppImage from "../images/mobile_side_app.png";
 import fireflyDownloadImage from "../images/firefly_download.png";
 import operaImage from "../images/opera.svg";
-import apkImage from "../images/apk.png";
+import { SEO } from "../components/SEO";
 import Layout from "../components/Layout";
 import buryPointTrigger from "../utils/gtag";
 
 // markup
 const DownloadPage = () => {
   const [os, setOs] = useState("");
-  const [showAll, setShowAll] = useState(false);
+
   useEffect(() => {
     // @ts-ignore
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -27,32 +26,13 @@ const DownloadPage = () => {
       setOs("Other");
     }
   }, []);
-  const handleIosTFClick = () => {
-    const CallApp = require("callapp-lib");
-    const newHref = window.location.href.replace("download-links", "tf-docs");
-    if (typeof window !== undefined) {
-      if (os === "iOS") {
-        const options = {
-          scheme: {
-            protocol: "itms-beta",
-          },
-          appstore: newHref,
-          fallback: newHref,
-          timeout: 500,
-        };
-        const callLib = new CallApp(options);
-        callLib.open({
-          path: "testflight.apple.com/join/PYomz4pJ",
-        });
-      } else {
-        window.location.href = newHref;
-      }
-    }
-  };
-  return os ? (
+
+  if (!os) return null;
+
+  return (
     <Layout>
       <SEO title="Download Links - Mask Network" />
-      {os === "Other" || showAll ? (
+      {os === "Other" ? (
         <div className="mt-16 sm:mt-0 w-full max-sm:my-8">
           <div className="flex flex-col items-center text-center px-4 sm:hidden">
             <p className="h2 mb-4">Install Mask Network on Your Devices</p>
@@ -178,19 +158,10 @@ const DownloadPage = () => {
               className="w-full"
             />
           </div>
-          {/* <p
-            onClick={() => {
-              document.body.scrollTop = document.documentElement.scrollTop = 0;
-              setShowAll(true);
-            }}
-            className="text-white text-[18px] font-normal text-center underline mb-24 max-sm:mb-14 sm:mt-16 font-Roboto"
-          >
-            Download for another operating system
-          </p> */}
         </div>
       )}
     </Layout>
-  ) : null;
+  );
 };
 
 export default DownloadPage;

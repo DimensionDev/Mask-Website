@@ -1,0 +1,80 @@
+diff --git a/node_modules/gatsby/cache-dir/commonjs/loader.js b/node_modules/gatsby/cache-dir/commonjs/loader.js
+index e5aac5b..18a9ebf 100644
+--- a/node_modules/gatsby/cache-dir/commonjs/loader.js
++++ b/node_modules/gatsby/cache-dir/commonjs/loader.js
+@@ -1,4 +1,4 @@
+-"use strict";
++
+ 
+ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+ 
+@@ -43,6 +43,12 @@ const createPageDataUrl = rawPath => {
+   return `${__PATH_PREFIX__}/page-data/${fixedPath}/page-data.json${maybeSearch ? `?${maybeSearch}` : ``}`;
+ };
+ 
++/**
++ * Utility to check the path that goes into doFetch for e.g. potential malicious intentions.
++ * It checks for "//" because with this you could do a fetch request to a different domain.
++ */
++const shouldAbortFetch = rawPath => rawPath.startsWith(`//`);
++
+ function doFetch(url, method = `GET`) {
+   return new Promise(resolve => {
+     const req = new XMLHttpRequest();
+@@ -860,6 +866,9 @@ class ProdLoader extends BaseLoader {
+   loadPageDataJson(rawPath) {
+     return super.loadPageDataJson(rawPath).then(data => {
+       if (data.notFound) {
++        if (shouldAbortFetch(rawPath)) {
++          return data;
++        }
+         // check if html file exist using HEAD request:
+         // if it does we should navigate to it instead of showing 404
+         return doFetch(rawPath, `HEAD`).then(req => {
+@@ -885,6 +894,9 @@ class ProdLoader extends BaseLoader {
+   loadPartialHydrationJson(rawPath) {
+     return super.loadPartialHydrationJson(rawPath).then(data => {
+       if (data.notFound) {
++        if (shouldAbortFetch(rawPath)) {
++          return data;
++        }
+         // check if html file exist using HEAD request:
+         // if it does we should navigate to it instead of showing 404
+         return doFetch(rawPath, `HEAD`).then(req => {
+diff --git a/node_modules/gatsby/cache-dir/loader.js b/node_modules/gatsby/cache-dir/loader.js
+index 2caf7c8..fa14a6f 100644
+--- a/node_modules/gatsby/cache-dir/loader.js
++++ b/node_modules/gatsby/cache-dir/loader.js
+@@ -31,6 +31,12 @@ const createPageDataUrl = rawPath => {
+   }`
+ }
+ 
++/**
++ * Utility to check the path that goes into doFetch for e.g. potential malicious intentions.
++ * It checks for "//" because with this you could do a fetch request to a different domain.
++ */
++const shouldAbortFetch = rawPath => rawPath.startsWith(`//`);
++
+ function doFetch(url, method = `GET`) {
+   return new Promise(resolve => {
+     const req = new XMLHttpRequest()
+@@ -871,6 +877,9 @@ export class ProdLoader extends BaseLoader {
+   loadPageDataJson(rawPath) {
+     return super.loadPageDataJson(rawPath).then(data => {
+       if (data.notFound) {
++        if (shouldAbortFetch(rawPath)) {
++          return data;
++        }
+         // check if html file exist using HEAD request:
+         // if it does we should navigate to it instead of showing 404
+         return doFetch(rawPath, `HEAD`).then(req => {
+@@ -895,6 +904,9 @@ export class ProdLoader extends BaseLoader {
+   loadPartialHydrationJson(rawPath) {
+     return super.loadPartialHydrationJson(rawPath).then(data => {
+       if (data.notFound) {
++        if (shouldAbortFetch(rawPath)) {
++          return data;
++        }
+         // check if html file exist using HEAD request:
+         // if it does we should navigate to it instead of showing 404
+         return doFetch(rawPath, `HEAD`).then(req => {

@@ -1,40 +1,43 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "propertyNames": {
+    "pattern": "^[A-Za-z_]+$"
+  },
+  "additionalProperties": {
     "type": "object",
     "propertyNames": {
-        "pattern": "^[A-Za-z_]+$"
+      "$ref": "#/definitions/chain-id"
     },
     "additionalProperties": {
-        "type": "object",
-        "propertyNames": {
-            "$ref": "#/definitions/chain-id"
-        },
-        "additionalProperties": {
-            "oneOf": [
-                { "$ref": "#/definitions/primitive" },
-                { "type": "array", "additionalItems": { "$ref": "#/definitions/primitive" } }
-            ]
+      "oneOf": [
+        { "$ref": "#/definitions/primitive" },
+        {
+          "type": "array",
+          "additionalItems": { "$ref": "#/definitions/primitive" }
         }
-    },
-    "minProperties": 1,
-    "definitions": {
-        "chain-id": {
-            "enum": [
-                "Mainnet",
-                "Ropsten",
-                "Rinkeby",
-                "Gorli",
-                "Kovan",
-                "BSC",
-                "BSCT",
-                "Matic",
-                "Mumbai",
-                "Arbitrum",
-                "Arbitrum_Rinkeby"
-            ]
-        },
-        "primitive": {
-            "type": ["string", "integer", "boolean", "null"]
-        }
+      ]
     }
+  },
+  "minProperties": 1,
+  "definitions": {
+    "chain-id": {
+      "enum": [
+        "Mainnet",
+        "Ropsten",
+        "Rinkeby",
+        "Gorli",
+        "Kovan",
+        "BSC",
+        "BSCT",
+        "Matic",
+        "Mumbai",
+        "Arbitrum",
+        "Arbitrum_Rinkeby"
+      ]
+    },
+    "primitive": {
+      "type": ["string", "integer", "boolean", "null"]
+    }
+  }
 }

@@ -1,7 +1,7 @@
+import React from "react";
 import githubImage from "../images/github.png";
 import maskdaoImage from "../images/image_maskdao.png";
 import maskImage from "../images/image_mask.png";
-import React from "react";
 
 // todo: color
 export const JoinCommunity = () => {

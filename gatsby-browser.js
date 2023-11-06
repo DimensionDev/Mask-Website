@@ -9,16 +9,3 @@ import "@fontsource/montserrat/900.css";
 import "@fontsource/manrope";
 import "@fontsource/poppins";
 import "@fontsource/roboto";
-
-const addScript = (url) => {
-  const script = document.createElement("script");
-  script.src = url;
-  script.async = true;
-  document.body.appendChild(script);
-};
-
-export const onClientEntry = () => {
-  window.onload = () => {
-    addScript("https://cdn.jsdelivr.net/npm/gun/gun.js");
-  };
-};
