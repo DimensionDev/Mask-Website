@@ -1,13 +1,13 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://mask.io`,
+    siteUrl: "https://mask.io",
     title: "Mask Network",
   },
   plugins: [
     "gatsby-plugin-postcss",
-    `gatsby-plugin-image`,
+    "gatsby-plugin-image",
     {
-      resolve: `gatsby-plugin-sharp`,
+      resolve: "gatsby-plugin-sharp",
       options: {
         defaultQuality: 80,
       },
@@ -19,7 +19,7 @@ module.exports = {
         fileTypes: ["js", "map", "css"],
       },
     },
-    `gatsby-transformer-sharp`,
+    "gatsby-transformer-sharp",
     "gatsby-plugin-cname",
     "gatsby-plugin-react-helmet",
     {
@@ -29,5 +29,5 @@ module.exports = {
       },
     },
   ],
-  assetPrefix: `/gatsby-assets`,
+  assetPrefix: "/gatsby-assets",
 };
