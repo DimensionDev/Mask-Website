@@ -16,7 +16,8 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "lint": "./node_modules/.bin/eslint src --ext .tsx --fix"
+    "lint": "./node_modules/.bin/eslint src --ext .tsx --fix",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@emotion/react": "^11.4.1",
@@ -40,6 +41,7 @@
     "gatsby-plugin-svgr": "^3.0.0-beta.0",
     "gatsby-source-filesystem": "^4.21.1",
     "gatsby-transformer-sharp": "^4.21.0",
+    "patch-package": "^8.0.0",
     "query-string": "^8.1.0",
     "react": "^17.0.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
