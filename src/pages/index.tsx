@@ -14,7 +14,6 @@ import AvatarSvg from "../images/outsvg/avatar.svg";
 
 import { JoinCommunity } from "../components/JoinCommunity";
 import { BrowserExtension } from "../components/BrowserExtension";
-// import { Partner } from "../components/Partner";
 import { Background } from "../components/Background";
 
 const sectionConfig = [
@@ -102,7 +101,6 @@ const IndexPage = () => {
       </div>
       <div className="bg-gradient-to-b from-white to-gray-background w-full">
         <JoinCommunity />
-        {/* <Partner /> */}
       </div>
     </Layout>
   );
