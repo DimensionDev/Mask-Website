@@ -99,7 +99,7 @@ const DownloadPage = () => {
                   Mobile App Firefly
                 </p>
                 <p className="w-full font-poppins md:max-w-xss font-bold text-[24px] sm:text-sm leading-tight sm:text-center mb-14">
-                  WEB3 SOCIAL AGGRTGATOR​
+                  WEB3 SOCIAL AGGREGATOR
                 </p>
                 <div
                   className="flex border-2 border-white rounded-[12px] w-[206px] p-[10px] bg-black-main gap-[12px] justify-center items-center cursor-pointer"
@@ -131,7 +131,7 @@ const DownloadPage = () => {
             Install Firefly on Your Devices!
           </p>
           <p className="text-white font-Manrope font-normal text-[20px] items-center px-6 text-center mb-7">
-            WEB3 SOCIAL AGGRTGATOR​
+            WEB3 SOCIAL AGGREGATOR
           </p>
           <div className="mb-16 flex-col items-center gap-8">
             <div
