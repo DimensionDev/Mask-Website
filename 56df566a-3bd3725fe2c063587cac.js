@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmask_website=self.webpackChunkmask_website||[]).push([[298],{8458:function(s,e,t){t(6540);e.A=t.p+"static/nft.57a6246e.svg"}}]);
+//# sourceMappingURL=56df566a-3bd3725fe2c063587cac.js.map
