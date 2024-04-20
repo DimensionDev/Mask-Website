@@ -137,6 +137,14 @@ export const Footer = () => {
                     >
                       Bounty Program
                     </a>
+                    <a
+                      href="https://www.notion.so/mask/Welcome-to-Mask-Network-Academy-6f73d3f754db4fcd92396e7bfe7e25ef"
+                      target="_blank"
+                      rel="noreferrer"
+                      className={footerLinkTextClassName}
+                    >
+                      Nonprofit
+                    </a>
                   </div>
                 </div>
               </div>
