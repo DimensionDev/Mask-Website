@@ -50,6 +50,16 @@ const Menu = ({ open }: MenuProps) => {
         <a
           target="_blank"
           rel="noreferrer"
+          href="https://stake.mask.io"
+          className="menu-link"
+        >
+          Stake
+        </a>
+      </div>
+      <div className="sm:min-w-full md-for-menu:min-w-full">
+        <a
+          target="_blank"
+          rel="noreferrer"
           href="https://we.mask.io/"
           className="menu-link"
         >
